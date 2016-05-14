@@ -30,8 +30,8 @@
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
-		classpath:com/pba/lookup/config/dao-config.xml
-		classpath:com/pba/lookup/config/service-config.xml
+		classpath:com/pb/token/config/dao-config.xml
+		classpath:com/pb/token/config/service-config.xml
 		</param-value>
 	</context-param>
 </web-app>
