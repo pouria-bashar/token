@@ -27,7 +27,6 @@ public class TokenRepository {
 	public String fetchToken(Integer expiryMinutes){
 		String id = UUID.randomUUID().toString();
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(new Date());
 		Date createDateTime = cal.getTime();
 		cal.add(Calendar.MINUTE, expiryMinutes);
 		Date expiryDateTime = cal.getTime();
@@ -57,8 +56,8 @@ public class TokenRepository {
 			throw new NotFoundException("Token with id " + id + " was not found");
 		}
 		Calendar cal = Calendar.getInstance();
-		cal.setTime(new Date());
-		if(cal.before(tokenDocument.getExpiryDateTime())){
+		
+		if(cal.after(tokenDocument.getExpiryDateTime())){
 			throw new ExpiredTokenException("Token with id " + id + " has been expired");
 		}
 		
