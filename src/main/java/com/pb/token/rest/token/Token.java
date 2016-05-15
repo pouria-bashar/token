@@ -16,7 +16,7 @@ public class Token {
 	@Autowired
 	TokenService tokenService;
 	
-	@RequestMapping(value = "/Token", method = RequestMethod.GET)
+	@RequestMapping(value = "/token", method = RequestMethod.GET)
 	public ResponseEntity<String> getToken(@RequestParam(name = "expiryMinutes", required = true) Integer expiryMinutes) {
 			
 		return new ResponseEntity<String>(tokenService.fetchToken(expiryMinutes),HttpStatus.OK);
